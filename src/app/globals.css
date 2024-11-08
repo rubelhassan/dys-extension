@@ -1,6 +1,4 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+
 
 :root {
   --background: #ffffff;
@@ -18,4 +16,452 @@ body {
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+/* styles.css */
+
+/* styles.css */
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  background-color: #f8f9fa; /* Light background color for header */
+  border-bottom: 1px solid #ddd; /* Optional border for separation */
+}
+
+.header-logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  flex-grow: 1;
+}
+
+
+
+.header-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.header button {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  background-color: #1a73e8;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.header button:hover {
+  background-color: #155cb0; /* Slightly darker color on hover */
+}
+
+
+
+.logo {
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.auth-links {
+  position: absolute;
+  right: 20px;
+}
+
+.auth-links a {
+  margin-left: 15px;
+  color: #61dafb;
+  text-decoration: none;
+}
+
+.auth-links a:hover {
+  text-decoration: underline;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.header-logo-image {
+  width: 40px;
+  height: 40px;
+}
+
+.navbar {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 10px 0;
+  background-color: #f5f5f5;
+}
+
+.navbar a {
+  color: #333;
+  font-size: 18px;
+  text-decoration: none;
+}
+
+.navbar a:hover {
+  color: #61dafb;
+}
+
+/* styles.css */
+
+.navbar ul {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  padding: 0;
+}
+
+.navbar ul li {
+  list-style: none;
+}
+
+.navbar ul li a {
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+}
+
+.navbar ul li.active a {
+  border-bottom: 2px solid #1a73e8; /* Active page border color */
+}
+
+
+
+/*login*/
+/* styles/globals.css */
+
+/* styles.css */
+
+.login-container {
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  text-align: center;
+  align-items: center; 
+}
+
+.login-container h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.error-message {
+  color: red;
+  margin-bottom: 10px;
+}
+
+.login-container form {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-container label {
+  margin-top: 10px;
+  margin-bottom: 5px;
+  font-size: 16px;
+}
+
+.login-container input {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.login-container button {
+  margin-top: 20px;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.google-login-button {
+  background-color: #4285F4;
+  color: white;
+}
+
+.google-login-button:hover,
+.login-container button:hover {
+  opacity: 0.9;
+}
+
+
+
+.loginbutton {
+  margin-right: 10px;  
+}
+/*signup*/
+/* styles.css */
+
+
+.register-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;  /* Center items horizontally */
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  margin-top: 5px;
+  padding: 1rem;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.register-form h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.register-form form {
+  width: 100%;  /* Full width for form elements */
+  display: flex;
+  flex-direction: column;
+  align-items: center;  /* Center-align form contents */
+}
+
+.register-form label,
+.register-form input,
+.signup-button,
+.google-signup-button {
+  width: 100%;  /* Make each form element take full width */
+  max-width: 300px;  /* Set a max width for readability */
+  margin: 0.5rem 0;  /* Add spacing between form elements */
+}
+
+.register-form input {
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.signup-button,
+.google-signup-button {
+  padding: 0.75rem;
+  font-weight: bold;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.google-signup-button {
+  background-color: #4285F4; /* Google red color */
+}
+
+
+/*Homepage*/
+/* src/app/globals.css */
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f5f7fa;
+}
+
+.content-section {
+  display: flex;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.sidebar {
+  flex: 1;
+  background-color: #e3e9f1;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-right: 2rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.sidebar li a {
+  display: block;
+  color: #003366;
+  padding: 0.75rem;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  border-radius: 4px;
+}
+
+.sidebar li a:hover {
+  background-color: #b3cde3;
+}
+
+.main-content {
+  flex: 3;
+  background-color: #ffffff;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.intro-card {
+  background-color: #ffefd5;
+  border: 2px solid #ffdab9;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+}
+
+.intro-card h2 {
+  color: #cc5500;
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.intro-card p {
+  color: #333333;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.main-content h2 {
+  color: #003366;
+  margin-top: 1.5rem;
+}
+
+.main-content p {
+  line-height: 1.6;
+  color: #333333;
+}
+
+.main-content section {
+  margin-bottom: 2rem;
+}
+
+button {
+  padding: 0.75rem 1.5rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  margin-top: 1rem;
+  margin-right: 1rem;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/*self diagnosis*/
+
+.self-diagnosis-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  background-color: #f0f4ff;
+  font-family: Arial, sans-serif;
+}
+
+.card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  max-width: 1000px;
+  margin: 1rem 0;
+  padding: 2rem;
+  text-align: center;
+}
+
+.card-image {
+  border-radius: 12px;
+  margin-bottom: 1.5rem;
+}
+
+.card-content {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #333333;
+  text-align: left;
+}
+
+.self-diagnosis-form {
+  max-width: 1000px;
+  padding: 2rem;
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.self-diagnosis-form h1 {
+  color: #003366;
+  text-align: center;
+  font-size: 1.8rem;
+}
+
+.question {
+  margin-bottom: 1.5rem;
+}
+
+.question p {
+  font-size: 1.2rem;
+  color: #555;
+}
+
+.answer-options {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+label {
+  font-size: 1rem;
+  color: #333;
+  cursor: pointer;
+}
+
+input[type="radio"] {
+  margin-right: 0.5rem;
+}
+
+button[type="submit"] {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: #4A90E2;
+  color: #fff;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+  background-color: #357ABD;
+}
+
+.result-note {
+  margin-top: 2rem;
+  background-color: #e3f6ff;
+  padding: 1rem;
+  border-radius: 8px;
+  color: #003366;
+  font-size: 1rem;
+  text-align: center;
 }

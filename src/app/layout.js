@@ -1,11 +1,15 @@
 import localFont from "next/font/local";
 import "./globals.css";
+import UserInfo from "./components/userinfo";  // Import UserInfo component
+import Header from "./components/header";      // Import Header component
+import Navbar from "./components/navbar";      // Import Navbar component
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
   weight: "100 900",
 });
+
 const geistMono = localFont({
   src: "./fonts/GeistMonoVF.woff",
   variable: "--font-geist-mono",
@@ -20,10 +24,11 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        <UserInfo />   {/* Displays "Logged in as" at the top-right corner */}
+        <Header />     {/* Displays the DYS logo and login/logout buttons */}
+        <Navbar />     {/* Displays the navigation bar with Home, Self Diagnosis, etc. */}
+        <main>{children}</main>   {/* Main content for each page */}
       </body>
     </html>
   );
