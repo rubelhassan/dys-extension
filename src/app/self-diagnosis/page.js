@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import { db, auth } from '../lib/firebaseConfig';
 import { doc, setDoc } from 'firebase/firestore';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default function SelfDiagnosis() {
     const [answers, setAnswers] = useState({});
@@ -110,6 +111,12 @@ export default function SelfDiagnosis() {
               If you checked seven or more of these questions, this may indicate dyslexia. Consider seeking consultation from a specialist or a formal diagnostic assessment from a qualified examiner.
             </p>
           </div>
+
+          <div className="extension-info-note">
+          <p>
+          We have also developed a helpful extension tool. To learn more about its features and how to use it, please visit the <strong><Link href="/extension-info">Extension Info</Link></strong> page.
+        </p>
+      </div>
         </div>
       </div>
     );
