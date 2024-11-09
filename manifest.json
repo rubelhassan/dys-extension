@@ -1,0 +1,59 @@
+{
+    "manifest_version": 3,
+    "name": "Dys-extension",
+    "version": "1.0.0",
+    "description": "Dys-extension makes the web more inclusive for people with Dyslexia",
+    "permissions": ["activeTab", "scripting", "contextMenus"],
+    "action": {
+      "default_popup": "index.html"
+    },
+    "background": {
+      "service_worker": "js/background.js"
+    },
+    "icons": {
+      "16": "icon.png",
+      "48": "icon.png",
+      "128": "icon.png"
+    },
+    "content_scripts": [
+      {
+        "matches": ["<all_urls>"],
+        "run_at": "document_end",
+        "css": [
+            "css/main.css",
+            "css/content.css",
+            "css/fontawesome.min.css",
+            "css/regular.min.css"
+        ],
+        "js": [
+            "js/content.js",
+            "js/script.js"
+        ]
+      }
+    ],
+    "web_accessible_resources": [
+        {
+          "resources": [
+            "css/fontawesome.min.css",
+            "css/regular.min.css",
+            "webfonts/*"
+          ],
+          "matches": ["<all_urls>"]
+        }
+      ],
+    "commands": {
+        "increase_font": {
+          "suggested_key": {
+            "default": "Ctrl+Shift+Up"
+          },
+          "description": "Increase font size"
+        },
+        "decrease_font": {
+          "suggested_key": {
+            "default": "Ctrl+Shift+Down"
+          },
+          "description": "Decrease font size"
+        }
+      }      
+  }
+  
