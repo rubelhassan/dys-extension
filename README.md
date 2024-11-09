@@ -1,4 +1,7 @@
-This is a [Dys-extension](https://dys-extension.vercel.app/) project codebase, which consists of the source code of the dyslexia browser extension and website.
+This is the [Dys-extension](https://dys-extension.vercel.app/) project codebase, which consists of the source code of the dyslexia browser extension and website.
+
+## Try Out Live
+[https://dys-extension.vercel.app/](https://dys-extension.vercel.app/)
 
 ## Getting Started
 
