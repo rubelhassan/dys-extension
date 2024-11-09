@@ -465,3 +465,152 @@ button[type="submit"]:hover {
   font-size: 1rem;
   text-align: center;
 }
+
+.extension-info-note {
+  margin-top: 20px;
+  padding: 10px;
+  border-top: 1px solid #ddd;
+  font-size: 1rem;
+  color: #333;
+  text-align: center;
+}
+
+/*extension=info page*/
+/* styles.css */
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f4f8; /* Light background for reduced contrast */
+  color: #333;
+}
+
+.extension-info-page {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+  max-width: 1000px; /* Increased max width to give more space to the card */
+  margin: 0 auto;
+  font-size: 1.1em;
+  line-height: 1.6;
+}
+
+.feature-image {
+  flex-shrink: 0;
+}
+
+
+
+h1, h2 {
+  color: #2b3a67;
+}
+
+h1 {
+  font-size: 2.2em;
+  margin-bottom: 0.3em;
+}
+
+h2 {
+  font-size: 1.8em;
+  margin-bottom: 0.5em;
+}
+
+p {
+  margin-bottom: 1em;
+}
+
+.feature h3 {
+  color: #0056b3;
+  font-size: 1.4em;
+  margin-top: 0.5em;
+}
+
+.feature p {
+  color: #444;
+  font-size: 1em;
+}
+
+.usage-guide h2 {
+  font-size: 1.8em;
+  margin-bottom: 0.5em;
+  color: #2b3a67;
+}
+
+/* Dyslexia-friendly enhancements */
+body, .card, .feature p {
+  font-family: "OpenDyslexic", Arial, sans-serif; /* Use OpenDyslexic if available */
+  background-color: #fafafa;
+  color: #333;
+}
+
+.usage-guide p {
+  color: #555;
+  line-height: 1.7;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .extension-info-page {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .feature-image img {
+    width: 40px; /* Adjust for mobile view */
+    height: auto;
+  }
+
+  .card {
+    max-width: 90%; /* Full width for small screens */
+  }
+}
+
+#floatingToolbar {
+  position: fixed;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 25px;
+  padding: 5px;
+  z-index: 1000;
+}
+
+#floatingToolbar button {
+  background-color: #ffffff;
+  border: none;
+  padding: 10px;
+  margin: 5px 0;
+  cursor: pointer;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background-color 0.2s;
+}
+
+#floatingToolbar button:hover {
+  background-color: #f0f0f0;
+}
+
+.high-contrast * {
+  filter: contrast(2);
+}
+
+@font-face {
+  font-family: "OpenDyslexic";
+  src: url("/fonts/OpenDyslexic-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.extension-info {
+  font-family: "OpenDyslexic", Arial, sans-serif;
+  padding: 20px;
+  max-width: 800px;
+  margin: auto;
+}
+
