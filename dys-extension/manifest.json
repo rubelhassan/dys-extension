@@ -1,69 +1,64 @@
 {
-    "manifest_version": 3,
-    "name": "Dys-extension",
-    "version": "1.0.0",
-    "description": "Dys-extension makes the web more inclusive for people with Dyslexia",
-    "permissions": ["activeTab", "scripting", "contextMenus"],
-    "action": {
-      "default_popup": "index.html"
-    },
-    "background": {
-      "service_worker": "js/background.js"
-    },
-    "icons": {
-      "16": "icon.png",
-      "48": "icon.png",
-      "128": "icon.png"
-    },
-    "content_scripts": [
-      {
-        "matches": ["<all_urls>"],
-        "run_at": "document_end",
-        "css": [
-            "css/main.css",
-            "css/content.css",
-            "css/all.css"
-        ],
-        "js": [
-            "js/content.js",
-            "js/script.js"
-        ]
-      }
-    ],
-    "web_accessible_resources": [
-        {
-          "resources": [
-            "fonts/OpenDyslexic-Bold-Italic.woff",
-            "fonts/OpenDyslexic-Bold.woff",
-            "fonts/OpenDyslexic-Italic.woff",
-            "fonts/OpenDyslexic-Regular.woff",
-            "css/all.css",
-            "webfonts/fa-solid-900.woff2",
-            "webfonts/fa-regular-400.woff2",
-            "webfonts/fa-brands-400.woff2",
-            "webfonts/fa-solid-900.woff",
-            "webfonts/fa-regular-400.woff",
-            "webfonts/fa-brands-400.woff",
-            "webfonts/fa-solid-900.ttf",
-            "webfonts/fa-regular-400.ttf",
-            "webfonts/fa-brands-400.ttf"
-          ],
-          "matches": ["<all_urls>"]
-        }
+  "manifest_version": 3,
+  "name": "Dys-extension",
+  "version": "1.0.0",
+  "description": "Dys-extension makes the web more inclusive for people with Dyslexia",
+  "permissions": ["activeTab", "scripting", "contextMenus", "storage"],
+  "action": {
+    "default_popup": "index.html"
+  },
+  "background": {
+    "service_worker": "js/background.js"
+  },
+  "icons": {
+    "16": "icon.png",
+    "48": "icon.png",
+    "128": "icon.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "run_at": "document_end",
+      "css": ["css/main.css", "css/content.css", "css/all.css"],
+      "js": ["js/content.js"]
+    }
+  ],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self';"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "fonts/OpenDyslexic-Bold-Italic.woff",
+        "fonts/OpenDyslexic-Bold.woff",
+        "fonts/OpenDyslexic-Italic.woff",
+        "fonts/OpenDyslexic-Regular.woff",
+        "css/all.css",
+        "webfonts/fa-solid-900.woff2",
+        "webfonts/fa-regular-400.woff2",
+        "webfonts/fa-brands-400.woff2",
+        "webfonts/fa-solid-900.woff",
+        "webfonts/fa-regular-400.woff",
+        "webfonts/fa-brands-400.woff",
+        "webfonts/fa-solid-900.ttf",
+        "webfonts/fa-regular-400.ttf",
+        "webfonts/fa-brands-400.ttf"
       ],
-    "commands": {
-        "increase_font": {
-          "suggested_key": {
-            "default": "Ctrl+Shift+Up"
-          },
-          "description": "Increase font size"
-        },
-        "decrease_font": {
-          "suggested_key": {
-            "default": "Ctrl+Shift+Down"
-          },
-          "description": "Decrease font size"
-        }
-      }      
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "commands": {
+    "increase_font": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+Up"
+      },
+      "description": "Increase font size"
+    },
+    "decrease_font": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+Down"
+      },
+      "description": "Decrease font size"
+    }
   }
-  
+}
