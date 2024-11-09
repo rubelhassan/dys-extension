@@ -54,6 +54,7 @@ function sendMessage(message) {
 
 document.addEventListener("DOMContentLoaded", () => {
   const toggleButton = document.getElementById("sidebarToggle");
+  const showSidebarToggle = document.getElementById("showSidebarToggle");
 
   toggleButton.addEventListener("change", () => {
       chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
@@ -70,5 +71,24 @@ document.addEventListener("DOMContentLoaded", () => {
           );
       });
   });
+
+
+  /* code for show hide sidebar */
+
+  showSidebarToggle.addEventListener("change", () => {
+    chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+        chrome.tabs.sendMessage(
+            tabs[0].id,
+            { type: "toggleSidebarVisibility" },
+            (response) => {
+                if (chrome.runtime.lastError) {
+                    console.error("Error:", chrome.runtime.lastError.message);
+                } else if (response && response.status === "visibility toggled") {
+                    console.log("Sidebar visibility toggled successfully");
+                }
+            }
+        );
+    });
+});
 });
 

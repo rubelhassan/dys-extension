@@ -3,18 +3,38 @@
   <head>
     <meta charset="UTF-8" />
     <title>Dys-extension Toolbar</title>
-    <link rel="stylesheet" href="css/main.css" />
     <link rel="stylesheet" href="css/all.css" />
+    <link rel="stylesheet" href="css/main.css" />
   </head>
   <body>
     <div id="dys_container">
-      <h2 id="welcome">Welcome to Dys-extension</h2>
+      <h2 id="dyslexia-ease">Dyslexic Ease</h2>
+
       <div class="toggle-container">
-        <span class="toggle-label">Dark SideBar</span>
+        <span class="toggle-label">Tool Bar</span>
+        <label class="toggle-switch">
+          <input type="checkbox" id="showSidebarToggle" />
+          <span class="slider"></span>
+        </label>
+      </div>
+
+      <div class="toggle-container">
+        <span class="toggle-label">Dark Mode</span>
         <label class="toggle-switch">
           <input type="checkbox" id="sidebarToggle" />
           <span class="slider"></span>
         </label>
+      </div>
+      <div>
+        <p id="more-info">
+          To Sign In and Learn More
+          <a
+            href="https://dys-extension.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Click Here</a
+          >
+        </p>
       </div>
     </div>
 
