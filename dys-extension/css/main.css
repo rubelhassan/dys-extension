@@ -1,12 +1,42 @@
+/* @font-face {
+  font-family: "OpenDyslexic";
+  src: url("fonts/OpenDyslexic-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+} */
+
+@font-face {
+  font-family: "OpenDyslexic";
+  src: url("https://cdn.jsdelivr.net/gh/antijingoist/open-dyslexic/fonts/OpenDyslexic-Regular.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
 #dys_container {
-  width: 400px;
-  height: 400px;
+  font-family: "OpenDyslexic", Arial, sans-serif;
+  width: 280px;
+  height: 300px;
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
+  /* justify-content: space-between; */
   align-items: center;
+  gap: 20px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
+}
+
+#dyslexia-ease {
+  font-family: "OpenDyslexic", Arial, sans-serif;
+  font-size: 24px;
+  line-height: 1.2;
+  letter-spacing: 0.05em;
+  word-spacing: 0.1em;
+  color: #ffffff;
+  background-color: #0d8ef8;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-align: center;
 }
 
 #toolbar {
@@ -40,15 +70,14 @@ button i {
   color: #4caf50;
 }
 
-#welcome {
-  color: red;
-}
-
 /*========Dark Sidebar==========*/
 .toggle-container {
+  width: 80%;
   display: flex;
+  flex-direction: row;
   align-items: center;
-  font-family: Arial, sans-serif;
+  justify-content: space-between;
+  font-family: OpenDyslexic, Arial;
   font-size: 16px;
 }
 
@@ -103,4 +132,12 @@ input:checked + .slider {
 
 input:checked + .slider:before {
   transform: translateX(18px);
+}
+
+#more-info{
+  font-size: 17px;
+  letter-spacing: 0.05em;
+  line-height: 1.1;
+  padding-left: 10%;
+  padding-right: 10%;
 }

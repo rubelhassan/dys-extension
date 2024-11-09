@@ -1,5 +1,3 @@
-
-
 // Inject floating toolbar
 function createToolbar() {
   const toolbar = document.createElement("div");
@@ -63,6 +61,7 @@ function createToolbar() {
             </svg>
         </button>
     `;
+  toolbar.style.display = "none";
   document.body.appendChild(toolbar);
 
   chrome.storage.local.set({ floatingToolbar: toolbar.id });
@@ -70,17 +69,28 @@ function createToolbar() {
   chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     if (message.type === "toggleSidebarBackground") {
       toolbar.classList.toggle("dark-mode");
-      
+
       const buttons = toolbar.querySelectorAll("button");
 
-                // Toggle the specified class on each button
-                buttons.forEach(button => {
-                    button.classList.toggle("white-button-in-dark-mode"); 
-                });
-        // Optionally, send a response back to script.js
-        sendResponse({ status: "toggled" });
+      // Toggle the specified class on each button
+      buttons.forEach((button) => {
+        button.classList.toggle("white-button-in-dark-mode");
+      });
+      // Optionally, send a response back to script.js
+      sendResponse({ status: "toggled" });
     }
-});
+
+    if (message.type === "toggleSidebarVisibility") {
+      const toolbar = document.getElementById("floatingToolbar");
+      if (toolbar) {
+        toolbar.style.display =
+          toolbar.style.display === "none" ? "block" : "none";
+        sendResponse({ status: "visibility toggled" });
+      } else {
+        sendResponse({ status: "not found" });
+      }
+    }
+  });
 
   // Add functionality to each button
   document
