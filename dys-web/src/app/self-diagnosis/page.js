@@ -28,22 +28,30 @@ export default function SelfDiagnosis() {
     };
 
     const handleSubmit = async (e) => {
-      e.preventDefault();
-      try {
-        const user = auth.currentUser;
-        if (user) {
-          const userDoc = doc(db, "selfDiagnosisResponses", user.uid);
-          await setDoc(userDoc, { answers });
-          alert("Your responses have been saved.");
-          router.push('/'); // Redirect after submission
-        } else {
-          alert("Please log in to save your responses.");
+        e.preventDefault();
+        try {
+          const user = auth.currentUser;
+          if (user) {
+            const userDoc = doc(db, "selfDiagnosisResponses", user.uid);
+            await setDoc(userDoc, {
+              answers: answers, // Storing the answers
+              email: user.email || "Unknown", // Storing the email, with fallback
+              timestamp: new Date().toISOString() // Storing timestamp as ISO string
+            }, { merge: true }); // Ensuring we don't overwrite if there's existing data
+            alert("Your responses have been saved.");
+            router.push('/'); // Redirect after submission
+          } else {
+            alert("Please log in to save your responses.");
+          }
+        } catch (error) {
+          console.error("Error saving responses:", error);
+          alert("An error occurred while saving your responses.");
         }
-      } catch (error) {
-        console.error("Error saving responses:", error);
-        alert("An error occurred while saving your responses.");
-      }
-    };
+      };
+      
+    
+    
+     
 
     return (
       <div className="self-diagnosis-page">
