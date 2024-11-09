@@ -1,0 +1,49 @@
+/* Styling for the floating toolbar */
+#floatingToolbar {
+    position: fixed;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 25px;
+    padding: 5px;
+    z-index: 10000;
+  }
+  
+  #floatingToolbar button {
+    background-color: #ffffff;
+    border: none;
+    padding: 10px;
+    margin: 5px 0;
+    cursor: pointer;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: background-color 0.2s;
+  }
+  
+  #floatingToolbar button:hover {
+    background-color: #f0f0f0;
+  }
+  
+  #floatingToolbar button i {
+    color: #4caf50; /* Customize icon color */
+  }
+  
+  /* High contrast mode */
+  .high-contrast * {
+    filter: contrast(2);
+  }
+
+  @font-face {
+    font-family: "OpenDyslexic";
+    src: url("fonts/OpenDyslexic-Regular.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+  
