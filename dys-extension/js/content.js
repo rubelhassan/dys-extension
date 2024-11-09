@@ -1,8 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
-  // Inject floating toolbar after the page is fully loaded
-  console.log("DOM fully loaded and parsed. Creating toolbar...");
-  // createToolbar();
-});
+
 
 // Inject floating toolbar
 function createToolbar() {
@@ -69,6 +65,23 @@ function createToolbar() {
     `;
   document.body.appendChild(toolbar);
 
+  chrome.storage.local.set({ floatingToolbar: toolbar.id });
+
+  chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+    if (message.type === "toggleSidebarBackground") {
+      toolbar.classList.toggle("dark-mode");
+      
+      const buttons = toolbar.querySelectorAll("button");
+
+                // Toggle the specified class on each button
+                buttons.forEach(button => {
+                    button.classList.toggle("white-button-in-dark-mode"); 
+                });
+        // Optionally, send a response back to script.js
+        sendResponse({ status: "toggled" });
+    }
+});
+
   // Add functionality to each button
   document
     .getElementById("increaseFont")
@@ -91,9 +104,7 @@ function createToolbar() {
   document
     .getElementById("decreaseSpacing")
     .addEventListener("click", () => adjustLetterSpacing(-1));
-    document
-    .getElementById("magnifyIcon")
-    .addEventListener("click", magnifyWeb)
+  document.getElementById("magnifyIcon").addEventListener("click", magnifyWeb);
   document
     .getElementById("toggleContrast")
     .addEventListener("click", toggleContrast);
@@ -164,68 +175,65 @@ function adjustLetterSpacing(adjustment) {
 }
 
 function magnifyWeb() {
-    // Track if zoom mode is enabled
-    let zoomEnabled = false;
-    
-    // Toggle the zoom mode when magnify icon is clicked
-    document.querySelector('#magnifyIcon').addEventListener('click', () => {
-        zoomEnabled = !zoomEnabled;
-        if (zoomEnabled) {
-            activateImageZoom();
-        } else {
-            deactivateImageZoom();
-        }
+  // Track if zoom mode is enabled
+  let zoomEnabled = false;
+
+  // Toggle the zoom mode when magnify icon is clicked
+  document.querySelector("#magnifyIcon").addEventListener("click", () => {
+    zoomEnabled = !zoomEnabled;
+    if (zoomEnabled) {
+      activateImageZoom();
+    } else {
+      deactivateImageZoom();
+    }
+  });
+
+  function activateImageZoom() {
+    // Add event listeners for mouse movements and hover effects on images
+    document.querySelectorAll("img").forEach((img) => {
+      img.addEventListener("mouseover", zoomIn);
+      img.addEventListener("mousemove", moveZoom);
+      img.addEventListener("mouseout", zoomOut);
     });
+  }
 
-    function activateImageZoom() {
-        // Add event listeners for mouse movements and hover effects on images
-        document.querySelectorAll('img').forEach(img => {
-            img.addEventListener('mouseover', zoomIn);
-            img.addEventListener('mousemove', moveZoom);
-            img.addEventListener('mouseout', zoomOut);
-        });
-    }
+  function deactivateImageZoom() {
+    // Remove event listeners from images
+    document.querySelectorAll("img").forEach((img) => {
+      img.removeEventListener("mouseover", zoomIn);
+      img.removeEventListener("mousemove", moveZoom);
+      img.removeEventListener("mouseout", zoomOut);
+      img.style.transform = ""; // Reset transformations
+      img.style.transition = "";
+      img.style.transformOrigin = "";
+    });
+  }
 
-    function deactivateImageZoom() {
-        // Remove event listeners from images
-        document.querySelectorAll('img').forEach(img => {
-            img.removeEventListener('mouseover', zoomIn);
-            img.removeEventListener('mousemove', moveZoom);
-            img.removeEventListener('mouseout', zoomOut);
-            img.style.transform = ''; // Reset transformations
-            img.style.transition = '';
-            img.style.transformOrigin = '';
-        });
+  function zoomIn(event) {
+    const img = event.target;
+    if (zoomEnabled) {
+      img.style.transition = "transform 0.2s ease";
+      img.style.transform = "scale(2)"; // Adjust the scale factor as needed
+      img.style.transformOrigin = "center center"; // Zoom from the center of the image
     }
+  }
 
-    function zoomIn(event) {
-        const img = event.target;
-        if (zoomEnabled) {
-            img.style.transition = 'transform 0.2s ease';
-            img.style.transform = 'scale(2)'; // Adjust the scale factor as needed
-            img.style.transformOrigin = 'center center'; // Zoom from the center of the image
-        }
+  function moveZoom(event) {
+    const img = event.target;
+    if (zoomEnabled) {
+      const rect = img.getBoundingClientRect();
+      const x = ((event.clientX - rect.left) / rect.width) * 100;
+      const y = ((event.clientY - rect.top) / rect.height) * 100;
+      img.style.transformOrigin = `${x}% ${y}%`; // Move zoom point to cursor position
     }
+  }
 
-    function moveZoom(event) {
-        const img = event.target;
-        if (zoomEnabled) {
-            const rect = img.getBoundingClientRect();
-            const x = ((event.clientX - rect.left) / rect.width) * 100;
-            const y = ((event.clientY - rect.top) / rect.height) * 100;
-            img.style.transformOrigin = `${x}% ${y}%`; // Move zoom point to cursor position
-        }
-    }
-
-    function zoomOut(event) {
-        const img = event.target;
-        img.style.transform = 'scale(1)'; // Reset the zoom
-        img.style.transformOrigin = 'center center';
-    }
+  function zoomOut(event) {
+    const img = event.target;
+    img.style.transform = "scale(1)"; // Reset the zoom
+    img.style.transformOrigin = "center center";
+  }
 }
-
-
-
 
 function toggleContrast() {
   const body = document.body;

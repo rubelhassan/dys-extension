@@ -1,3 +1,4 @@
+console.log("script.js");
 document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("increaseFont").addEventListener("click", () => {
     sendMessage({ type: "adjustFontSize", adjustment: 1 });
@@ -11,13 +12,17 @@ document.addEventListener("DOMContentLoaded", () => {
     sendMessage({ type: "highlightText" });
   });
 
-  document.getElementById("increaseLineHeight").addEventListener("click", () => {
-    sendMessage({ type: "adjustLineHeight", adjustment: 1 });
-  });
+  document
+    .getElementById("increaseLineHeight")
+    .addEventListener("click", () => {
+      sendMessage({ type: "adjustLineHeight", adjustment: 1 });
+    });
 
-  document.getElementById("decreaseLineHeight").addEventListener("click", () => {
-    sendMessage({ type: "adjustLineHeight", adjustment: -1 });
-  });
+  document
+    .getElementById("decreaseLineHeight")
+    .addEventListener("click", () => {
+      sendMessage({ type: "adjustLineHeight", adjustment: -1 });
+    });
 
   document.getElementById("increaseSpacing").addEventListener("click", () => {
     sendMessage({ type: "adjustLetterSpacing", adjustment: 1 });
@@ -37,9 +42,33 @@ function sendMessage(message) {
     chrome.scripting.executeScript({
       target: { tabId: tabs[0].id },
       func: (msg) => {
-        document.dispatchEvent(new CustomEvent("extensionMessage", { detail: msg }));
+        document.dispatchEvent(
+          new CustomEvent("extensionMessage", { detail: msg })
+        );
       },
       args: [message],
     });
   });
 }
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const toggleButton = document.getElementById("sidebarToggle");
+
+  toggleButton.addEventListener("change", () => {
+      chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+          chrome.tabs.sendMessage(
+              tabs[0].id,
+              { type: "toggleSidebarBackground" },
+              (response) => {
+                  if (chrome.runtime.lastError) {
+                      console.error("Error:", chrome.runtime.lastError.message);
+                  } else if (response && response.status === "toggled") {
+                      console.log("Sidebar background toggled successfully");
+                  }
+              }
+          );
+      });
+  });
+});
+
