@@ -1,4 +1,4 @@
-This is a [Dys-extension]([https://nextjs.org](https://dys-extension.vercel.app/) project website.
+This is a [Dys-extension](https://dys-extension.vercel.app/) project codebase, which consists of the source code of the dyslexia browser extension and website.
 
 ## Getting Started
 
