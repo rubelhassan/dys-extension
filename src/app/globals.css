@@ -48,8 +48,9 @@ body {
 .header button {
   padding: 0.5rem 1rem;
   font-size: 1rem;
-  background-color: #1a73e8;
-  color: #fff;
+  background-color: #0A66C2; /* Darker blue for higher contrast */
+  color: #ffffff; /* White text for maximum contrast */
+  transition: background-color 0.3s ease, color 0.3s ease;
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -136,9 +137,7 @@ body {
 
 /*login*/
 /* styles/globals.css */
-
-/* styles.css */
-
+/* General container styles */
 .login-container {
   max-width: 400px;
   margin: 50px auto;
@@ -147,7 +146,7 @@ body {
   border-radius: 8px;
   background-color: #f9f9f9;
   text-align: center;
-  align-items: center; 
+  align-items: center;
 }
 
 .login-container h2 {
@@ -160,6 +159,7 @@ body {
   margin-bottom: 10px;
 }
 
+/* Form styles */
 .login-container form {
   display: flex;
   flex-direction: column;
@@ -179,30 +179,52 @@ body {
   margin-bottom: 10px;
 }
 
+/* Button styles */
 .login-container button {
   margin-top: 20px;
   padding: 10px;
   font-size: 16px;
+  font-weight: bold; /* Makes text easier to read */
   border: none;
   border-radius: 4px;
   cursor: pointer;
 }
 
+/* Email login button */
+.email-login-button {
+  background-color: #0A66C2; /* Darker blue for higher contrast */
+  color: #ffffff; /* White text for maximum contrast */
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.email-login-button:hover {
+  background-color: #002752; /* Even darker blue on hover */
+  color: #ffffff;
+}
+
+/* Google login button */
 .google-login-button {
-  background-color: #4285F4;
-  color: white;
+  background-color: #0A66C2; /* Darker blue for higher contrast */
+  color: #ffffff; /* White text for maximum contrast */
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.google-login-button:hover,
+.google-login-button:hover {
+  background-color: #063e73; /* Slightly darker blue on hover */
+  color: #ffffff;
+}
+
+
 .login-container button:hover {
-  opacity: 0.9;
+  opacity: 0.95; /* Slight transparency effect on hover */
 }
-
 
 
 .loginbutton {
-  margin-right: 10px;  
+  margin-right: 10px;
 }
+
+
 /*signup*/
 /* styles.css */
 
@@ -252,15 +274,18 @@ body {
 .google-signup-button {
   padding: 0.75rem;
   font-weight: bold;
-  color: #fff;
-  background-color: #007bff;
+  background-color: #0A66C2; /* Darker blue for higher contrast */
+  color: #ffffff; /* White text for maximum contrast */
+  transition: background-color 0.3s ease, color 0.3s ease;
   border: none;
   border-radius: 4px;
   cursor: pointer;
 }
 
 .google-signup-button {
-  background-color: #4285F4; /* Google red color */
+  background-color: #0A66C2; /* Darker blue for higher contrast */
+  color: #ffffff; /* White text for maximum contrast */
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 
@@ -353,23 +378,32 @@ body {
   margin-bottom: 2rem;
 }
 
+/* Button Styles */
 button {
   padding: 0.75rem 1.5rem;
-  background-color: #007bff;
-  color: white;
+  background-color: #00509e; /* Higher contrast blue */
+  color: #ffffff; /* White text */
   border: none;
   border-radius: 4px;
+  font-size: 1rem; /* Ensure text is readable */
+  font-weight: bold;
   margin-top: 1rem;
   margin-right: 1rem;
   cursor: pointer;
+  transition: background-color 0.3s ease; /* Smooth hover effect */
 }
 
 button:hover {
-  background-color: #0056b3;
+  background-color: #003d7a; /* Slightly darker blue for hover */
+  color: #ffffff; /* Maintain text visibility on hover */
 }
 
-/*self diagnosis*/
+.anchorUl {
+  text-decoration: underline;
+}
 
+/* self diagnosis */
+/* self diagnosis */
 .self-diagnosis-page {
   display: flex;
   flex-direction: column;
@@ -397,22 +431,37 @@ button:hover {
 .card-content {
   font-size: 1rem;
   line-height: 1.6;
-  color: #333333;
+  color: #1A1A1A; /* Updated for better contrast */
   text-align: left;
 }
 
 .self-diagnosis-form {
   max-width: 1000px;
   padding: 2rem;
-  background-color: #f9f9f9;
+  background-color: #ffffff; /* Higher contrast background */
   border-radius: 12px;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
 .self-diagnosis-form h1 {
-  color: #003366;
+  color: #003366; /* High contrast heading */
   text-align: center;
   font-size: 1.8rem;
+}
+
+fieldset {
+  border: 2px solid #00509E; /* Stylish blue border */
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+legend {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #003366; /* Dark blue for accessibility */
+  padding: 0 0.5rem;
+  text-align: left;
 }
 
 .question {
@@ -421,18 +470,18 @@ button:hover {
 
 .question p {
   font-size: 1.2rem;
-  color: #555;
+  color: #1A1A1A; /* Improved text contrast */
 }
 
 .answer-options {
   display: flex;
   justify-content: center;
-  gap: 1rem;
+  gap: 1.5rem; /* Increased spacing for better usability */
 }
 
 label {
   font-size: 1rem;
-  color: #333;
+  color: #1A1A1A; /* Updated for better readability */
   cursor: pointer;
 }
 
@@ -440,11 +489,11 @@ input[type="radio"] {
   margin-right: 0.5rem;
 }
 
-button[type="submit"] {
+.extension-info-button {
   width: 100%;
   padding: 0.75rem;
-  background-color: #4A90E2;
-  color: #fff;
+  background-color: #00509E; /* High contrast blue button */
+  color: #FFFFFF; /* White text for readability */
   font-size: 1.1rem;
   border: none;
   border-radius: 6px;
@@ -452,28 +501,33 @@ button[type="submit"] {
   transition: background-color 0.3s;
 }
 
-button[type="submit"]:hover {
-  background-color: #357ABD;
+.extension-info-button:hover {
+  background-color: #003F7D; /* Slightly darker hover state */
 }
 
 .result-note {
   margin-top: 2rem;
-  background-color: #e3f6ff;
+  background-color: #E0F7FF; /* Light blue background for contrast */
   padding: 1rem;
   border-radius: 8px;
-  color: #003366;
+  color: #003366; /* Dark blue text for readability */
   font-size: 1rem;
   text-align: center;
 }
 
-.extension-info-note {
-  margin-top: 20px;
-  padding: 10px;
-  border-top: 1px solid #ddd;
-  font-size: 1rem;
-  color: #333;
-  text-align: center;
+
+
+a {
+  text-decoration: none;
+  color: #00509E; /* Blue link */
 }
+
+a:hover {
+  text-decoration: underline;
+  color: #003F7D; /* Darker blue hover effect */
+}
+
+
 
 /*extension=info page*/
 /* styles.css */
@@ -564,6 +618,7 @@ body, .card, .feature p {
   }
 }
 
+/* Floating Toolbar */
 #floatingToolbar {
   position: fixed;
   top: 50%;
@@ -573,27 +628,47 @@ body, .card, .feature p {
   flex-direction: column;
   background-color: #ffffff;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  border-radius: 25px;
-  padding: 5px;
+  border-radius: 10px;
+  padding: 10px;
   z-index: 1000;
 }
 
 #floatingToolbar button {
-  background-color: #ffffff;
+  background-color: #00509E; /* Updated to a dark blue for better contrast */
   border: none;
   padding: 10px;
   margin: 5px 0;
   cursor: pointer;
-  font-size: 20px;
+  font-size: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  transition: background-color 0.2s;
+  transition: background-color 0.2s, transform 0.2s;
 }
 
 #floatingToolbar button:hover {
-  background-color: #f0f0f0;
+  background-color: #003F7D; /* Slightly darker blue for hover state */
+  transform: scale(1.1);
+}
+
+#floatingToolbar button svg {
+  fill: #FFFFFF; /* White icons for maximum contrast against dark background */
+}
+
+#floatingToolbar button:focus {
+  outline: 2px solid #FFD700; /* Yellow focus outline for accessibility */
+  outline-offset: 2px;
+}
+
+/* Additional States for Accessibility */
+#floatingToolbar button:disabled {
+  background-color: #cccccc; /* Grey for disabled state */
+  cursor: not-allowed;
+}
+
+#floatingToolbar button:disabled svg {
+  fill: #666666; /* Darker grey icons for disabled buttons */
 }
 
 .high-contrast * {

@@ -1,4 +1,3 @@
-// src/components/Header.js
 "use client";
 
 import { useEffect, useState } from 'react';
@@ -29,7 +28,7 @@ const Header = () => {
       <div className="logo-container" onClick={() => router.push('/')}>
         <Image 
           src="/logo.jpg" 
-          alt="Logo" 
+          alt="DYS Logo" // Updated alt text to be meaningful
           width={40} 
           height={40} 
           className="header-logo-image" 
